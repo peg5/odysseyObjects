@@ -2,6 +2,14 @@ class hero {
 	String name;
 	String[] weapons = {"stick", "sword"};
 
+	void setName(String heroName) {
+		name = heroName;
+	}
+
+	String getName() {
+		return name;
+	}
+
 	void attack(String monsterName) {
 		if (monsterName == "Polyphemus") {
 			System.out.println(monsterName + " attacks!");
@@ -19,20 +27,29 @@ class monster {
         void attack() {
                 System.out.println(name + "attacks!");
         }
+
+	void setName(String monsterName) {
+		name = monsterName;
+	}
+
+	String getName() {
+		return name;
+	}
 }
 
 class odysseyObjectsTestDrive {
 	public static void main(String[] args) {
-		monster cyclops = new monster();
-		cyclops.name = "Polyphemus";
-
 		hero odysseus = new hero();
-		odysseus.name = "Odysseus";
-		odysseus.attack(cyclops.name);
+		odysseus.setName("Odysseus");
+
+		monster cyclops = new monster();
+		cyclops.setName("Polyphemus");
+
+		odysseus.attack(cyclops.getName());
 
 		monster seaMonster = new monster();
-		seaMonster.name = "Scylla and Charibdis";
-		odysseus.attack(seaMonster.name);
+		seaMonster.setName("Scylla and Charibdis");
+		odysseus.attack(seaMonster.getName());
 
 	}
 }
